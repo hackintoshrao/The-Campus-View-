@@ -6,25 +6,6 @@ var http=require('http'),
 http.createServer(function(req,res) {
 	 pathname = search_path + req.url;
 	 console.log(req.url);
-	 if(req.url == '/ls' ){
-                var spawn = require('child_process').spawn,
-		ls = spawn('ls');
-		ls.stdout.on('data', function (data) {
-		console.log('stdout: ' + data);
-		res.writeHead(200);
-		res.write('Getting the Directory listing.....');
-		res.write(data);
-		res.end();
-		
-		});
-		ls.stderr.on('data', function (data) {
-		console.log('stderr: ' + data);
-		});
-ls.on('exit', function (code) {
-console.log('child process exited with code ' + code);
-	});
-		
-	}
 	 console.log(pathname);
 
 	fs.stat(pathname , function(err,stats){
