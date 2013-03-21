@@ -3,7 +3,7 @@ extends layout
 block scripts
   script(type='text/javascript', src='/socket.io/socket.io.js')
   script(type='text/javascript')
-    var socket = io.connect('http://localhost:9000');
+    var socket = io.connect('http://10.42.0.1:9000');
     socket.on('chat', function(data) {
       document.getElementById('chat').innerHTML =
         '<p><b>' + data.title + '</b>: ' + data.contents + '</p>';
